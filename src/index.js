@@ -1,3 +1,6 @@
+const LOCAL_URL = "http://localhost:3000/rapsongs"
+const HEROKU_URL = "https://whispering-shore-86049.herokuapp.com/rapsongs"
+
 let recording = false;
 let drumRecording = ""
 let start;
@@ -18,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getAllRapsongs() {
     //fetch request to rails api. later on will parse rap songs to display from this fetch request
-    fetch("https://whispering-shore-86049.herokuapp.com/rapsongs")
+    fetch(LOCAL_URL)
     .then(r => r.json()).then(console.log)
 }
 
@@ -43,12 +46,9 @@ function createRapSong() {
     let url = "/"
 
     let newRapsong = new Rapsong(name, username, drums, lyrics, voice, url)
-    //let songObj = {name: name, username: username, drums: drums, lyrics: lyrics, voice: voice, url: url}
-    console.log(JSON.stringify(songObj))
     fetch("http://localhost:3000/rapsongs", {
         method: "POST",
-        headers: { "Content-Type": "application/json; charset=utf-8"},
+        headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newRapsong)
-    }).then(r => console.log(r)).then(r => r.json()).then(console.log)
+    }).then(r => r.json()).then(console.log).catch(err => { console.err(`${err} happened!`)})
 }
-
