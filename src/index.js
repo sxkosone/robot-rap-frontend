@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getAllRapsongs() {
     //fetch request to rails api. later on will parse rap songs to display from this fetch request
-    fetch("https://whispering-shore-86049.herokuapp.com/rapsongs")
+    fetch("http://localhost:3000/rapsongs")
     .then(r => r.json()).then(console.log)
 }
 
@@ -43,12 +43,12 @@ function createRapSong() {
     let url = "/"
 
     let newRapsong = new Rapsong(name, username, drums, lyrics, voice, url)
-    //let songObj = {name: name, username: username, drums: drums, lyrics: lyrics, voice: voice, url: url}
+    let songObj = {name: name, username: username, drums: drums, lyrics: lyrics, voice: voice, url: url}
     console.log(JSON.stringify(songObj))
     fetch("http://localhost:3000/rapsongs", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8"},
         body: JSON.stringify(newRapsong)
-    }).then(r => console.log(r)).then(r => r.json()).then(console.log)
+    }).then(r => r.json()).then(console.log)
 }
 
