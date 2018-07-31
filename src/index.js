@@ -71,22 +71,23 @@ function playSong(lyrics, voice, drumBeat) {
     synth.speak(utterThis);
     lyricsText.blur();
 
+    // Drum Beat sounds are not currently working as intended... They all fire at the same time...
 
-    let drumBeat = rapsong.drums;
-    let drumKeycode = [];
-    drumBeat.split('%').forEach(function(drumSound){
-        drumKeycode.push(drumSound.slice(0,2))
-    })
+    // let drumBeat = rapsong.drums;
+    // let drumKeycode = [];
+    // drumBeat.split('%').forEach(function(drumSound){
+    //     drumKeycode.push(drumSound.slice(0,2))
+    // })
 
-    drumKeycode.forEach(function(keyNum){
-        setTimeout(function(){
-            playBeat(keyNum)
-        }, 1000)
-    })
+    // drumKeycode.forEach(function(keyNum){
+    //     setTimeout(function(){
+    //         playBeat(keyNum)
+    //     }, 1000)
+    // })
 
 }
 
-function playBeat(keyNum){
-    const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
-    audio.play()
-}
+// function playBeat(keyNum){
+//     const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
+//     audio.play()
+// }
