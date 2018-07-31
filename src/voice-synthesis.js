@@ -1,6 +1,6 @@
 //global vars
 let synth = window.speechSynthesis;
-let lyricsForm = document.querySelector('form');
+let lyricsForm = document.querySelector('#lyrics-form');
 let lyricsText = document.querySelector('textarea');
 let voiceSelect = document.querySelector('select');
 

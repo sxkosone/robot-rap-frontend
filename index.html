@@ -14,11 +14,11 @@
         <div class="keys">
             <div data-key="65" class="key">
                 <kbd>A</kbd>
-                <span class="sound">clap</span>
+                <span class="sound">siren</span>
             </div>
             <div data-key="83" class="key">
                     <kbd>S</kbd>
-                    <span class="sound">hihat</span>
+                    <span class="sound">punch</span>
             </div>
             <div data-key="68" class="key">
                     <kbd>D</kbd>
@@ -26,7 +26,7 @@
             </div>
             <div data-key="70" class="key">
                     <kbd>F</kbd>
-                    <span class="sound">openhat</span>
+                    <span class="sound">snare</span>
             </div>
             <div data-key="71" class="key">
                     <kbd>G</kbd>
@@ -38,15 +38,15 @@
             </div>
             <div data-key="74" class="key">
                     <kbd>J</kbd>
-                    <span class="sound">snare</span>
+                    <span class="sound">boing</span>
             </div>
             <div data-key="75" class="key">
                     <kbd>K</kbd>
-                    <span class="sound">tom</span>
+                    <span class="sound">donk</span>
             </div>
             <div data-key="76" class="key">
                     <kbd>L</kbd>
-                    <span class="sound">tink</span>
+                    <span class="sound">dink</span>
             </div>
         </div>
     
@@ -69,12 +69,22 @@
     
     </div>
     <div>
-        <h2>Lyrics</h2>
+        <h2>Add lyrics</h2>
         <form id="lyrics-form">
             <textarea name="lyrics" form="lyrics-form"></textarea>
-                <input type="submit" value="Play lyrics">
-                <select name="" id=""></select>
+            <select name="" id=""></select>
+            <input type="submit" value="Play lyrics">
         </form>
+        <h3>Record and share</h3>
+        <form id="record-form">
+            <label for="name">Song name</label>
+            <input type="text" name="name">
+            <label for="username">Artist (your) name</label>
+            <input type="text" name="username">
+            <input id="record-btn" type="submit" value="Record my rap song!">
+        </form>
+        <button id="stop-btn">Stop recording</button>
+        <button id="save-btn">Save!</button>
     </div>
 
 
@@ -86,6 +96,7 @@
     <script src="./src/voice-synthesis.js"></script>
     <script src="./src/index.js"></script>
     <script src="./src/drumkit.js"></script>
+    <script src="./src/rapsong.js"></script>
     
 </body>
 </html>
