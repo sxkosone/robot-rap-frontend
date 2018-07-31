@@ -14,9 +14,13 @@ class Rapsong {
         let rapsongsDiv = document.getElementById("rapsongs")
         rapsongsDiv.appendChild(rapsongEl)
         rapsongEl.innerHTML = this.innerHTML()
+        rapsongEl.querySelector("button").addEventListener("click", () => {
+            playDrums(this.lyrics, this.voice, this.drums)
+        })
     }
 
     innerHTML() {
         return `<h3>${this.name} by ${this.username}</h3><p>${this.lyrics}</p><button data-songId="${this.id}">Play</button>`
     }
+
 }
