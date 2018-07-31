@@ -7,6 +7,7 @@ let start;
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("connected")
+    getAllRapsongs();
     document.getElementById("record-form").addEventListener("submit", (e) => {
         e.preventDefault();
         startRecording();
@@ -20,9 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function getAllRapsongs() {
-    //fetch request to rails api. later on will parse rap songs to display from this fetch request
+    //fetch request to local rails api
     fetch(LOCAL_URL)
-    .then(r => r.json()).then(console.log)
+    .then(r => r.json()).then(rapsongs => {
+        rapsongs.forEach(rapsong => {
+            //loop through all returned rapsong objects
+            let newRapsong = new Rapsong(rapsong.id, rapsong.username, rapsong.name, rapsong.drums, rapsong.lyrics, rapsong.voice, rapsong.url)
+            //render each rapsong onto screen
+            newRapsong.render()
+        })
+    })
 }
 
 function startRecording() {
