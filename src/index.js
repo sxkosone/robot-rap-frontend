@@ -52,3 +52,41 @@ function createRapSong() {
         body: JSON.stringify(newRapsong)
     }).then(r => r.json()).then(console.log).catch(err => { console.err(`${err} happened!`)})
 }
+
+
+function createPlayButtonHandler(node) {
+    node.addEventListener("click", function(){
+        playSong()
+    })
+}
+
+function playSong(lyrics, voice, drumBeat) {
+    let voices = synth.getVoices();
+    let utterThis = new  SpeechSynthesisUtterance(lyrics);
+    for (let element of voices) {
+        if (element.name == voice) {
+            utterThis.voice = element
+        }
+    }
+    synth.speak(utterThis);
+    lyricsText.blur();
+
+
+    let drumBeat = rapsong.drums;
+    let drumKeycode = [];
+    drumBeat.split('%').forEach(function(drumSound){
+        drumKeycode.push(drumSound.slice(0,2))
+    })
+
+    drumKeycode.forEach(function(keyNum){
+        setTimeout(function(){
+            playBeat(keyNum)
+        }, 1000)
+    })
+
+}
+
+function playBeat(keyNum){
+    const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
+    audio.play()
+}
