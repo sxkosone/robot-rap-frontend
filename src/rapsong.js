@@ -14,8 +14,16 @@ class Rapsong {
         let rapsongsDiv = document.getElementById("rapsongs")
         rapsongsDiv.appendChild(rapsongEl)
         rapsongEl.innerHTML = this.innerHTML()
-        rapsongEl.querySelector("button").addEventListener("click", () => {
-            playSong(this.lyrics, this.voice, this.drums)
+        rapsongEl.querySelector("button").addEventListener("click", (event) => {
+            //debugger
+            if (event.target.innerText === "Play") {
+                playSong(this.lyrics, this.voice, this.drums, event)
+                togglePlayStopText(event.target)
+            } else if (event.target.innerText === "Stop") {
+                stopSong()
+                togglePlayStopText(event.target)
+            }
+            
         })
     }
 
