@@ -63,7 +63,7 @@ function createRapSong() {
     }).then(r => r.json()).then(console.log).catch(err => { console.err(`${err} happened!`)})
 }
 
-function playlyrics(lyrics, voice) {
+function playSongLyrics(lyrics, voice) {
     let voices = synth.getVoices();
     let utterThis = new  SpeechSynthesisUtterance(lyrics);
     for (let element of voices) {
@@ -97,7 +97,7 @@ function playDrums(drumStr) {
 
 function playSong(lyrics, voice, drumStr, event) {
     //togglePlayStopText(event.target)
-    playlyrics(lyrics, voice)
+    playSongLyrics(lyrics, voice)
     playDrums(drumStr)
 }
 
