@@ -15,7 +15,7 @@ class Rapsong {
         rapsongsDiv.appendChild(rapsongEl)
         rapsongEl.innerHTML = this.innerHTML()
         rapsongEl.querySelector("button").addEventListener("click", () => {
-            playDrums(this.lyrics, this.voice, this.drums)
+            playSong(this.lyrics, this.voice, this.drums)
         })
     }
 

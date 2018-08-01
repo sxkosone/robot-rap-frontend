@@ -53,11 +53,11 @@ function createRapSong() {
     let voice = voiceSelect.selectedOptions[0].getAttribute('data-name');
     let url = "/"
 
-    let newRapsong = new Rapsong(name, username, drums, lyrics, voice, url)
+    let newObj = {username: username, name: name, drums: drums, lyrics: lyrics, voice: voice, url: url}
     fetch("http://localhost:3000/rapsongs", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(newRapsong)
+        body: JSON.stringify(newObj)
     }).then(r => r.json()).then(console.log).catch(err => { console.err(`${err} happened!`)})
 }
 
@@ -68,7 +68,7 @@ function createPlayButtonHandler(node) {
     })
 }
 
-function playSong(lyrics, voice, drumBeat) {
+function playlyrics(lyrics, voice) {
     let voices = synth.getVoices();
     let utterThis = new  SpeechSynthesisUtterance(lyrics);
     for (let element of voices) {
@@ -78,6 +78,36 @@ function playSong(lyrics, voice, drumBeat) {
     }
     synth.speak(utterThis);
     lyricsText.blur();
+}
+
+function playDrums(drumStr) {
+
+     //initialize counter to 0. set Interval to 10milliseconds
+    //every time the interval fires increase counter by 10 and we check if the first element has a time value that is less than the counter
+    //if it does we play the audio at the set key and then shift()
+    //if array length equal 0, then clear Interval with id
+
+
+    let drumBeatArr = drumStr.split('%')
+    drumBeatArr.pop()
+    let newDrumBeatArr = drumBeatArr.map(x => x.split("-"))
+    let counter = 0
+    let timer = setInterval(function(){
+        if(newDrumBeatArr.length === 0) {
+            clearInterval(timer)
+        } else if(newDrumBeatArr[0][1] <= counter ) {
+            playBeat(newDrumBeatArr[0][0])
+            newDrumBeatArr.shift()
+        }
+        counter += 10
+    }, 10)
+  
+}
+
+function playSong(lyrics, voice, drumStr) {
+    playlyrics(lyrics, voice)
+    playDrums(drumStr)
+}
 
     // Drum Beat sounds are not currently working as intended... They all fire at the same time...
 
@@ -93,9 +123,9 @@ function playSong(lyrics, voice, drumBeat) {
     //     }, 1000)
     // })
 
-}
 
-// function playBeat(keyNum){
-//     const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
-//     audio.play()
-// }
+function playBeat(keyNum){
+    const audio = document.querySelector(`audio[data-key="${keyNum}"]`);
+    audio.currentTime = 0
+    audio.play()
+}
