@@ -62,7 +62,12 @@ function createRapSong() {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newObj)
-    }).then(r => r.json()).then(console.log).catch(err => { console.err(`${err} happened!`)})
+    }).then(r => r.json())
+    .then(data => {
+        let newRapSong = new Rapsong(data.id, data.username, data.name, data.drums, data.lyrics, data.voice, data.url)
+        newRapSong.render()
+    })
+    .catch(err => { console.err(`${err} happened!`)})
 }
 
 function playSongLyrics(lyrics, voice) {
