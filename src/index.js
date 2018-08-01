@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("record-form").addEventListener("submit", (e) => {
         e.preventDefault();
         startRecording();
+        playLyrics()
     })
     document.getElementById("stop-btn").addEventListener("click", (e) => {
         stopRecording();
