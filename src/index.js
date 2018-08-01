@@ -3,6 +3,7 @@ const HEROKU_URL = "https://whispering-shore-86049.herokuapp.com/rapsongs"
 
 let recording = false;
 let drumRecording = ""
+let duration = 0;
 let start;
 let timer;
 
@@ -32,8 +33,6 @@ function getAllRapsongs() {
             //render each rapsong onto screen
             newRapsong.render()
         })
-
-
     })
 }
 
@@ -46,7 +45,8 @@ function startRecording() {
 
 function stopRecording() {
     recording = !recording;
-    console.log("you recorded this:", drumRecording)
+    duration = Date.now()-start
+    console.log("you recorded this:", drumRecording, "length in milliseconds was:", duration)
 }
 
 function createRapSong() {
@@ -100,12 +100,6 @@ function playDrums(drumStr) {
         }
         counter += 10
     }, 10)
-}
-
-function playSong(lyrics, voice, drumStr, event) {
-    //togglePlayStopText(event.target)
-    playSongLyrics(lyrics, voice)
-    playDrums(drumStr)
 }
 
 function playBeat(keyNum){
