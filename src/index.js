@@ -26,12 +26,14 @@ function getAllRapsongs() {
     //fetch request to local rails api
     fetch(LOCAL_URL)
     .then(r => r.json()).then(rapsongs => {
-        rapsongs.forEach(rapsong => {
+            rapsongs.forEach(rapsong => {
             //loop through all returned rapsong objects
             let newRapsong = new Rapsong(rapsong.id, rapsong.username, rapsong.name, rapsong.drums, rapsong.lyrics, rapsong.voice, rapsong.url)
             //render each rapsong onto screen
             newRapsong.render()
         })
+
+
     })
 }
 
