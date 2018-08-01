@@ -7,7 +7,7 @@ class Rapsong {
         this.lyrics = lyrics
         this.voice = voice
         this.url = url
-        this.length = duration
+        this.duration = duration
         this.backgroundSong = backgroundSong
     }
 
@@ -34,8 +34,11 @@ class Rapsong {
     }
     //new instance method for rapsong playing
     play() {
+        console.log(this)
         playSongLyrics(this.lyrics, this.voice)
         playDrums(this.drums)
+        //also play bg song
+        playBackgroundSong(this.backgroundSong, this.duration)
     }
 
 }

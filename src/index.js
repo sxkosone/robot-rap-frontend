@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("save-btn").addEventListener("click", (e) => {
         createRapSong();
     })
+    addEventListenersToBackgroundSongs();
 })
 
 function getAllRapsongs() {
@@ -29,18 +30,23 @@ function getAllRapsongs() {
     .then(r => r.json()).then(rapsongs => {
             rapsongs.forEach(rapsong => {
             //loop through all returned rapsong objects
-            let newRapsong = new Rapsong(rapsong.id, rapsong.username, rapsong.name, rapsong.drums, rapsong.lyrics, rapsong.voice, rapsong.url)
+            let newRapsong = new Rapsong(rapsong.id, rapsong.username, rapsong.name, rapsong.drums, rapsong.lyrics, rapsong.voice, rapsong.url, rapsong.duration, rapsong.background_song)
             //render each rapsong onto screen
             newRapsong.render()
         })
     })
 }
 
+//RECORDING
 function startRecording() {
+    //initialize global vars again
+    duration = 0;
     drumRecording = ""
     start = Date.now();
-    console.log("you started recording at:", start)
     recording = !recording
+
+    console.log("you started recording at:", start)
+    
 }
 
 function stopRecording() {
@@ -49,6 +55,7 @@ function stopRecording() {
     console.log("you recorded this:", drumRecording, "length in milliseconds was:", duration)
 }
 
+//SAVING A RAPSONG
 function createRapSong() {
     let name = document.querySelector("input[name='name']").value
     let username = document.querySelector("input[name='username']").value
@@ -56,20 +63,24 @@ function createRapSong() {
     let lyrics = document.querySelector('textarea').value;
     let voice = voiceSelect.selectedOptions[0].getAttribute('data-name');
     let url = "/"
+    let songDuration = duration
+    let backgroundSong = parseInt(document.querySelector(".selected-background-song").dataset.backgroundsongid)
 
-    let newObj = {username: username, name: name, drums: drums, lyrics: lyrics, voice: voice, url: url}
+    let newObj = {username: username, name: name, drums: drums, lyrics: lyrics, voice: voice, url: url, duration: songDuration, background_song: backgroundSong}
     fetch(LOCAL_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newObj)
     }).then(r => r.json())
     .then(data => {
-        let newRapSong = new Rapsong(data.id, data.username, data.name, data.drums, data.lyrics, data.voice, data.url)
+        console.log(data)
+        let newRapSong = new Rapsong(data.id, data.username, data.name, data.drums, data.lyrics, data.voice, data.url, data.duration, data.background_song)
         newRapSong.render()
     })
     .catch(err => { console.err(`${err} happened!`)})
 }
 
+//PLAY A RAPSONG FUNCTIONALITIES
 function playSongLyrics(lyrics, voice) {
     let voices = synth.getVoices();
     let utterThis = new  SpeechSynthesisUtterance(lyrics);
@@ -115,4 +126,31 @@ function stopSong() {
 
 function togglePlayStopText(button) {
     button.innerText = button.innerText === "Play" ? "Stop" : "Play"
+}
+
+//BACKGROUND SONG functionalities
+function addEventListenersToBackgroundSongs() {
+    document.querySelectorAll(".background-song").forEach(backgroundSong => {
+        backgroundSong.addEventListener("click", (e) => {
+            chooseBackgroundSong(e.target)
+        })
+        
+    })
+}
+
+function chooseBackgroundSong(backgroundSong) {
+    document.querySelectorAll(".background-song").forEach(backgroundSong => {
+        backgroundSong.classList.remove("selected-background-song")
+    })
+    backgroundSong.classList.add("selected-background-song")
+    console.log(backgroundSong)
+}
+
+function playBackgroundSong(id, duration) {
+    console.log(id, duration)
+    const bg = document.querySelector(`audio[data-backgroundSongId="${id}"]`)
+    bg.play()
+    setTimeout(function() {
+        bg.pause();
+    }, duration)
 }
