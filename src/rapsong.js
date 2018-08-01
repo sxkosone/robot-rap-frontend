@@ -12,7 +12,7 @@ class Rapsong {
     render() {
         let rapsongEl = document.createElement("div")
         let rapsongsDiv = document.getElementById("rapsongs")
-        rapsongsDiv.appendChild(rapsongEl)
+        rapsongsDiv.prepend(rapsongEl)
         rapsongEl.innerHTML = this.innerHTML()
         rapsongEl.querySelector("button").addEventListener("click", (event) => {
             //debugger
