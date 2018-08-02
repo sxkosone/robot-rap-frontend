@@ -37,3 +37,7 @@ kbd {
   letter-spacing: .1rem;
   color: #ffc600;
 }
+
+.selected-background-song {
+  border: 2px solid yellow;
+}
