@@ -12,12 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
     getAllRapsongs();
     document.getElementById("record-form").addEventListener("submit", (e) => {
         e.preventDefault();
-        startRecording();
-        playLyrics()
+        toggleRecordAndStop();
+        disableButtons();
+        // startRecording();
+        // playLyrics()
     })
-    document.getElementById("stop-btn").addEventListener("click", (e) => {
-        stopRecording();
-    })
+    // document.getElementById("stop-btn").addEventListener("click", (e) => {
+    //     stopRecording();
+    // })
     document.getElementById("save-btn").addEventListener("click", (e) => {
         createRapSong();
     })
@@ -131,6 +133,46 @@ function togglePlayStopText(button) {
     button.innerText = button.innerText === "Play" ? "Stop" : "Play"
 }
 
+<<<<<<< HEAD
+//------------------------------------------------
+
+
+function startRecording() {
+    drumRecording = ""
+    start = Date.now();
+    console.log("you started recording at:", start)
+}
+
+function stopRecording() {
+    console.log("you recorded this:", drumRecording)
+}
+
+function toggleRecordAndStop() {
+    recording = !recording
+    if(recording) {
+        startRecording()
+        playLyrics()
+        document.getElementById("record-btn").value = "Stop recording"
+    } else {
+        document.getElementById("record-btn").value = "Record my rap song!"
+    }
+}
+
+function disableButtons() {
+    let allButtons = document.querySelectorAll("button")
+    if(document.getElementById("record-btn").value === "Stop recording") {
+        document.getElementById("lyrics-btn").disabled = true;
+        allButtons.forEach(button => {
+            button.disabled = true;
+        })
+    } else {
+        allButtons.forEach(button => {
+            document.getElementById("lyrics-btn").disabled = false;
+            button.disabled = false;
+        })
+    }
+}
+=======
 //BACKGROUND SONG functionalities
 function addEventListenersToBackgroundSongs() {
     document.querySelectorAll(".background-song").forEach(backgroundSong => {
@@ -162,3 +204,4 @@ function playBackgroundSong(id, duration, buttonEl) {
         togglePlayStopText(buttonEl)
     }, duration)
 }
+>>>>>>> badda2db397638c457d04bd2a06494a80b63958b

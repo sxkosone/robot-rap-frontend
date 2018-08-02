@@ -25,3 +25,31 @@ keys.forEach(key => {
 })
 
 window.addEventListener("keydown", playSound)
+
+
+const clickedKeys = document.querySelectorAll(".key");
+clickedKeys.forEach(key => {
+    key.addEventListener("click", clickSound)
+})
+
+
+// document.querySelector(`div[data-key="83"]`).addEventListener("click", clickSound)
+
+
+
+function clickSound(e) {
+    console.log("clicked")
+    const audio = document.querySelector(`audio[data-key="${e.currentTarget.dataset.key}"]`);
+    const key = document.querySelector(`.key[data-key="${e.currentTarget.dataset.key}"]`);
+    if (!audio) return; //stop function from going further if no key associated
+    audio.currentTime = 0; //rewind to start if the audio is already playing!!
+    audio.play();
+    key.classList.add("playing");
+
+    //if recording, then also store key and Date.now()
+    if (recording) {
+        drumRecording += e.keyCode
+        let timer = Date.now() - start; //return time elapsed from start of recording in milliseconds
+        drumRecording += "-"+timer + "%"
+    }
+}
