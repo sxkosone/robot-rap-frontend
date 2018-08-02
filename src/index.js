@@ -45,12 +45,16 @@ function startRecording() {
     duration = 0;
     drumRecording = ""
     start = Date.now();
+    //recording toggle happens now in toggle function
+    //recording = !recording
 
     console.log("you started recording at:", start)
     
 }
 
 function stopRecording() {
+    //recording toggle happens now in toggle function
+    //recording = !recording;
     duration = Date.now()-start
     console.log("you recorded this:", drumRecording, "length in milliseconds was:", duration)
 }
@@ -133,7 +137,7 @@ function togglePlayStopText(button) {
 
 //------------------------------------------------
 
-
+// not necessary duplicate functions
 // function startRecording() {
 //     drumRecording = ""
 //     start = Date.now();
@@ -145,6 +149,7 @@ function togglePlayStopText(button) {
 // }
 
 function toggleRecordAndStop() {
+    //recording will be now toggle ONLY here
     recording = !recording
     if(recording) {
         startRecording()
@@ -175,7 +180,6 @@ function addEventListenersToBackgroundSongs() {
         backgroundSong.addEventListener("click", (e) => {
             chooseBackgroundSong(e.target)
         })
-        
     })
 }
 
