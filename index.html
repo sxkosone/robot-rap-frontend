@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hanalei+Fill|Kirang+Haerang|Lato" rel="stylesheet">
+    <!-- bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <!-- style -->
     <link rel="stylesheet" href="./styles/style.css">
     <title>Robot rap</title>
@@ -13,6 +15,20 @@
 <body>
     <div class="create">
     <h1>Create your robot rap</h1>
+    <div>
+            <h2>Add some lyrics</h2>
+            <form id="lyrics-form">
+                <select name="" id="voice"></select>
+                <textarea name="lyrics" form="lyrics-form" cols="50" rows="10"></textarea>
+                <input id="lyrics-btn" type="submit" value="Play lyrics">
+            </form>
+    
+            <!-- backgrounds songs -->
+            <h2>Add background song</h2>
+            <audio class="background-song" data-backgroundSongId="1" src="https://dl.dropboxusercontent.com/s/eesybyqdrg3d2dd/trimmed-audio.wav?dl=0" controls loop></audio>
+            <audio class="background-song" data-backgroundSongId="2" src="https://dl.dropbox.com/s/9hkfkj74p1bd70e/Broke_For_Free_-_05_-_Something_Elated-%5BAudioTrimmer.com%5D%20%281%29.mp3?dl=0" controls loop></audio>
+            <audio class="background-song" data-backgroundSongId="3" src="https://dl.dropbox.com/s/xfem6fcvj4bejl7/Daedelus_-_15_-_Make_It_Drums.mp3?dl=0" controls loop></audio>
+    </div>
     <div class="drums">
         <h2>Add some drums</h2>
         <div class="keys">
@@ -59,31 +75,12 @@
         <audio data-key="83" id="lowTom" src="https://dl.dropbox.com/s/3sm1g1fp0g0c6xi/lotom.wav?dl=0"></audio>
         <audio data-key="68" id="medTomt" src="https://dl.dropbox.com/s/gmkdi147erzwznw/midtom%20%28online-audio-converter.com%29.wav?dl=0"></audio>
         <audio data-key="70" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3"></audio>
-        
         <audio data-key="71" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_ElecK01-Kick02.mp3"></audio>
-        
         <audio data-key="72" src="https://dl.dropbox.com/s/agqve4ncqaph8la/909-squoosh-hat%20%28online-audio-converter.com%29.wav?dl=0"></audio>
         <audio data-key="74" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_Crash-03.mp3"></audio>
-        
-        
         <audio data-key="75" src="http://soundbible.com/mp3/Frying Pan Impact-SoundBible.com-786709826.mp3"></audio>
-        
         <audio data-key="76" src="http://soundbible.com/mp3/Frying Pan Hit-SoundBible.com-2141771342.mp3"></audio>
     
-    </div>
-    <div>
-        <h2>Add some lyrics</h2>
-        <form id="lyrics-form">
-            <textarea name="lyrics" form="lyrics-form"></textarea>
-            <select name="" id=""></select>
-            <input id="lyrics-btn" type="submit" value="Play lyrics">
-        </form>
-
-        <!-- backgrounds songs -->
-        <h2>Add background song</h2>
-        <audio class="background-song" data-backgroundSongId="1" src="https://dl.dropboxusercontent.com/s/eesybyqdrg3d2dd/trimmed-audio.wav?dl=0" controls loop></audio>
-        <audio class="background-song" data-backgroundSongId="2" src="https://dl.dropbox.com/s/9hkfkj74p1bd70e/Broke_For_Free_-_05_-_Something_Elated-%5BAudioTrimmer.com%5D%20%281%29.mp3?dl=0" controls loop></audio>
-        <audio class="background-song" data-backgroundSongId="3" src="https://dl.dropbox.com/s/xfem6fcvj4bejl7/Daedelus_-_15_-_Make_It_Drums.mp3?dl=0" controls loop></audio>
     </div>
 
 <div class="recording">
@@ -98,8 +95,6 @@
         <button id="save-btn">Save!</button>
     </div>
 </div>   
-
-
     <!-- rapsong feed -->
     <h2>Latest rap songs</h2>
     <div id="rapsongs">
