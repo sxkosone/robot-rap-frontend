@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- browser icon -->
     <link rel="shortcut icon" type="image/x-icon" href="https://www.favicon.cc/logo3d/729010.png" />
-
+    <!-- aos library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Hanalei+Fill|Kirang+Haerang|Lato" rel="stylesheet">
     <!-- style -->
@@ -104,11 +105,12 @@
 </div>   
     <!-- rapsong feed -->
     <div id="rap-song-container">
-    <h2>Latest rap songs</h2>
-    <div id="rapsongs">
+    <h2  data-aos="fade-right">Latest rap songs</h2>
+    <div id="rapsongs" data-aos="fade-right">
 
     </div>
 </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./scripts/voice-synthesis.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/drumkit.js"></script>

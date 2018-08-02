@@ -55,9 +55,10 @@ kbd {
 
 .create {
   background: url("http://www.nasa.gov/sites/default/files/thumbnails/image/15-066.png") bottom;
-  background-size: auto;
+  /* background-size: auto; */
   background-size: cover;
   text-align: center;
+  min-height: 100vh;
 }
 
 h1, h2 {
@@ -161,8 +162,7 @@ label {
 
 #rap-song-container h2 {
   margin: 0;
-  /* padding-left: 20px;
-  padding-top: 20px; */
+  padding-left: 40px;
 }
 
 #rap-song-container p {

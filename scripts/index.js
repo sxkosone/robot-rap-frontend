@@ -1,3 +1,5 @@
+AOS.init();
+
 const LOCAL_URL = "http://localhost:3000/rapsongs"
 const HEROKU_URL = "https://whispering-shore-86049.herokuapp.com/rapsongs"
 
@@ -17,7 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     document.getElementById("save-btn").addEventListener("click", (e) => {
-        createRapSong();
+        if (duration > 0 && !recording) {
+            createRapSong();
+        } else {
+            console.log("you have to record something before saving!")
+        }
+        
     })
     addEventListenersToBackgroundSongs();
     document.querySelector("textarea").addEventListener("blur", unmuteDrums)
