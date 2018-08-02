@@ -119,9 +119,12 @@ function playBeat(keyNum){
     audio.play()
 }
 
-function stopSong() {
+function stopSong(backgroundSongId) {
     speechSynthesis.cancel();
     clearInterval(timer)
+    const bg = document.querySelector(`audio[data-backgroundSongId="${backgroundSongId}"]`)
+    bg.pause();
+    bg.currentTime = 0;
 }
 
 function togglePlayStopText(button) {
@@ -146,11 +149,16 @@ function chooseBackgroundSong(backgroundSong) {
     console.log(backgroundSong)
 }
 
-function playBackgroundSong(id, duration) {
-    console.log(id, duration)
-    const bg = document.querySelector(`audio[data-backgroundSongId="${id}"]`)
-    bg.play()
+function playBackgroundSong(id, duration, buttonEl) {
+    if (id) {
+        console.log(id, duration)
+        const bg = document.querySelector(`audio[data-backgroundSongId="${id}"]`)
+        bg.play()
+    }
     setTimeout(function() {
-        bg.pause();
+        //bg.pause();
+        //bg.currentTime = 0;
+        stopSong(id)
+        togglePlayStopText(buttonEl)
     }, duration)
 }

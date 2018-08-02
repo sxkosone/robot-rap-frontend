@@ -19,10 +19,10 @@ class Rapsong {
         rapsongEl.querySelector("button").addEventListener("click", (event) => {
             //debugger
             if (event.target.innerText === "Play") {
-                this.play()
+                this.play(event.target)
                 togglePlayStopText(event.target)
             } else if (event.target.innerText === "Stop") {
-                stopSong()
+                stopSong(this.backgroundSong)
                 togglePlayStopText(event.target)
             }
             
@@ -33,12 +33,12 @@ class Rapsong {
         return `<h3>${this.name} by ${this.username}</h3><p>${this.lyrics}</p><button data-songId="${this.id}">Play</button>`
     }
     //new instance method for rapsong playing
-    play() {
+    play(buttonEl) {
         console.log(this)
         playSongLyrics(this.lyrics, this.voice)
         playDrums(this.drums)
         //also play bg song
-        playBackgroundSong(this.backgroundSong, this.duration)
+        playBackgroundSong(this.backgroundSong, this.duration, buttonEl)
     }
 
 }
