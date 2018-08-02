@@ -1,0 +1,31 @@
+{
+  "name": "robot-rap",
+  "version": "1.0.0",
+  "description": "Make your own robotic rapsongs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxkosone/robot-rap-frontend.git"
+  },
+  "keywords": [
+    "rap",
+    "music",
+    "generator",
+    "javascript",
+    "voice",
+    "synthesis"
+  ],
+  "author": "Susanna Kosonen and Anthony Chang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sxkosone/robot-rap-frontend/issues"
+  },
+  "homepage": "https://github.com/sxkosone/robot-rap-frontend#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
