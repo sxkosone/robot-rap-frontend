@@ -45,14 +45,12 @@ function startRecording() {
     duration = 0;
     drumRecording = ""
     start = Date.now();
-    recording = !recording
 
     console.log("you started recording at:", start)
     
 }
 
 function stopRecording() {
-    recording = !recording;
     duration = Date.now()-start
     console.log("you recorded this:", drumRecording, "length in milliseconds was:", duration)
 }
@@ -133,19 +131,18 @@ function togglePlayStopText(button) {
     button.innerText = button.innerText === "Play" ? "Stop" : "Play"
 }
 
-<<<<<<< HEAD
 //------------------------------------------------
 
 
-function startRecording() {
-    drumRecording = ""
-    start = Date.now();
-    console.log("you started recording at:", start)
-}
+// function startRecording() {
+//     drumRecording = ""
+//     start = Date.now();
+//     console.log("you started recording at:", start)
+// }
 
-function stopRecording() {
-    console.log("you recorded this:", drumRecording)
-}
+// function stopRecording() {
+//     console.log("you recorded this:", drumRecording)
+// }
 
 function toggleRecordAndStop() {
     recording = !recording
@@ -172,7 +169,6 @@ function disableButtons() {
         })
     }
 }
-=======
 //BACKGROUND SONG functionalities
 function addEventListenersToBackgroundSongs() {
     document.querySelectorAll(".background-song").forEach(backgroundSong => {
@@ -204,4 +200,3 @@ function playBackgroundSong(id, duration, buttonEl) {
         togglePlayStopText(buttonEl)
     }, duration)
 }
->>>>>>> badda2db397638c457d04bd2a06494a80b63958b
