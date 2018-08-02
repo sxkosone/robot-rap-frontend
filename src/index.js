@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getAllRapsongs() {
     //fetch request to local rails api
-    fetch(LOCAL_URL)
+    fetch(HEROKU_URL)
     .then(r => r.json()).then(rapsongs => {
             rapsongs.forEach(rapsong => {
             //loop through all returned rapsong objects
@@ -67,7 +67,7 @@ function createRapSong() {
     let backgroundSong = parseInt(document.querySelector(".selected-background-song").dataset.backgroundsongid)
 
     let newObj = {username: username, name: name, drums: drums, lyrics: lyrics, voice: voice, url: url, duration: songDuration, background_song: backgroundSong}
-    fetch(LOCAL_URL, {
+    fetch(HEROKU_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newObj)
