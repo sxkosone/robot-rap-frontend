@@ -20,7 +20,7 @@
     <div class="create">
     <h1><i class="fas fa-robot"></i> Create your robot rap <i class="fas fa-robot"></i></h1>
     <div>
-            <h2>Add some lyrics</h2>
+            <h2><i class="fas fa-pencil-alt"></i> Step 1. Add some lyrics <i class="fas fa-pencil-alt"></i></h2>
             <form id="lyrics-form">
                 <select name="" id="voice"></select>
                 <textarea name="lyrics" form="lyrics-form" cols="50" rows="10"></textarea>
@@ -28,7 +28,7 @@
             </form>
     
             <!-- backgrounds songs -->
-            <h2><i class="fas fa-music"></i> Add background song <i class="fas fa-music"></i></h2>
+            <h2><i class="fas fa-music"></i> Step 2. Add background song <i class="fas fa-music"></i></h2>
             <audio class="background-song" data-backgroundSongId="1" src="https://dl.dropboxusercontent.com/s/eesybyqdrg3d2dd/trimmed-audio.wav?dl=0" controls loop></audio>
             <audio class="background-song" data-backgroundSongId="2" src="https://dl.dropbox.com/s/9hkfkj74p1bd70e/Broke_For_Free_-_05_-_Something_Elated-%5BAudioTrimmer.com%5D%20%281%29.mp3?dl=0" controls loop></audio>
             <audio class="background-song" data-backgroundSongId="3" src="https://dl.dropbox.com/s/xfem6fcvj4bejl7/Daedelus_-_15_-_Make_It_Drums.mp3?dl=0" controls loop></audio>
@@ -87,7 +87,7 @@
     </div>
 
 <div class="recording">
-        <h2>Record and share</h2>
+        <h2>Step 3. Record and share</h2>
         <form id="record-form">
             <div class="record-inputs">
                 <label for="name">Song name</label>
@@ -103,10 +103,12 @@
     </div>
 </div>   
     <!-- rapsong feed -->
+    <div id="rap-song-container">
     <h2>Latest rap songs</h2>
     <div id="rapsongs">
 
     </div>
+</div>
     <script src="./scripts/voice-synthesis.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/drumkit.js"></script>

@@ -1,4 +1,4 @@
-html {
+body {
   padding: 0;
   margin: 0;
 }
@@ -147,4 +147,24 @@ label {
   border-radius: 2px;
   font-size: 1rem;
   font-family: "Lato", sans-serif;
+}
+
+#rap-song-container {
+  background-color: black;
+  padding: 40px;
+
+}
+
+#rap-song-container h2, h3 {
+  color: ghostwhite;
+}
+
+#rap-song-container h2 {
+  margin: 0;
+  /* padding-left: 20px;
+  padding-top: 20px; */
+}
+
+#rap-song-container p {
+  color: #73EEDC;
 }
