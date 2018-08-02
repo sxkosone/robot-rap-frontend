@@ -4,6 +4,7 @@ let lyricsForm = document.querySelector('#lyrics-form');
 let lyricsText = document.querySelector('textarea');
 let voiceSelect = document.querySelector('select');
 
+
 //add event listener to button
 lyricsForm.addEventListener("submit", (e) => {
     console.log("clicked")
