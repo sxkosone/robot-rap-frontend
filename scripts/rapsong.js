@@ -30,7 +30,7 @@ class Rapsong {
     }
 
     innerHTML() {
-        return `<h3>${this.name} - ${this.username}</h3><p>${this.lyrics}</p><button data-songId="${this.id}">Play</button>`
+        return `<h3>${this.name} - ${this.username}<button data-songId="${this.id}">Play</button></h3><p>${this.lyrics}</p>`
     }
     //new instance method for rapsong playing
     play(buttonEl) {

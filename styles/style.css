@@ -115,3 +115,36 @@ i {
   color: cyan;
   text-shadow: 2px 2px 10px black;
 }
+
+#rapsongs {
+  padding-left: 20px;
+}
+
+#rapsongs button {
+  background-color: springgreen;
+  border-radius: 2px;
+  margin: 1rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+}
+
+.record-inputs {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  font-family: "Lato", sans-serif;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+#record-btn, #save-btn {
+  background-color: white;
+  margin-top: 1rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+}
