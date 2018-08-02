@@ -55,21 +55,15 @@
         </div>
     
         <!-- audio samples -->
-        <audio data-key="65" id="giantTom" src="https://dl.dropbox.com/s/84iwpznisg07jnr/giant_tom.wav?dl=0"></audio>
-        <audio data-key="83" id="lowTom" src="https://dl.dropbox.com/s/3sm1g1fp0g0c6xi/lotom.wav?dl=0"></audio>
-        <audio data-key="68" id="medTomt" src="https://dl.dropbox.com/s/gmkdi147erzwznw/midtom%20%28online-audio-converter.com%29.wav?dl=0"></audio>
-        <audio data-key="70" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3"></audio>
-        
-        <audio data-key="71" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_ElecK01-Kick02.mp3"></audio>
-        
-        <audio data-key="72" src="https://dl.dropbox.com/s/agqve4ncqaph8la/909-squoosh-hat%20%28online-audio-converter.com%29.wav?dl=0"></audio>
-        <audio data-key="74" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_Crash-03.mp3"></audio>
-        
-        
-        <audio data-key="75" src="http://soundbible.com/mp3/Frying Pan Impact-SoundBible.com-786709826.mp3"></audio>
-        
-        <audio data-key="76" src="http://soundbible.com/mp3/Frying Pan Hit-SoundBible.com-2141771342.mp3"></audio>
-    
+        <audio data-key="65" id="giantTom" class="drumsounds" src="https://dl.dropbox.com/s/84iwpznisg07jnr/giant_tom.wav?dl=0"></audio>
+        <audio data-key="83" id="lowTom" class="drumsounds" src="https://dl.dropbox.com/s/3sm1g1fp0g0c6xi/lotom.wav?dl=0"></audio>
+        <audio data-key="68" id="medTom" class="drumsounds" src="https://dl.dropbox.com/s/gmkdi147erzwznw/midtom%20%28online-audio-converter.com%29.wav?dl=0"></audio>
+        <audio data-key="70" id="snare" class="drumsounds" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3"></audio>
+        <audio data-key="71" id="base" class="drumsounds" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_ElecK01-Kick02.mp3"></audio>
+        <audio data-key="72" id="highHat" class="drumsounds" src="https://dl.dropbox.com/s/agqve4ncqaph8la/909-squoosh-hat%20%28online-audio-converter.com%29.wav?dl=0"></audio>
+        <audio data-key="74" id="crash" class="drumsounds" src="http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_Crash-03.mp3"></audio>
+        <audio data-key="75" id="donk" class="drumsounds" src="http://soundbible.com/mp3/Frying Pan Impact-SoundBible.com-786709826.mp3"></audio>
+        <audio data-key="76" id="dink" class="drumsounds" src="http://soundbible.com/mp3/Frying Pan Hit-SoundBible.com-2141771342.mp3"></audio>
     </div>
     <div>
         <h2>Add some lyrics</h2>
@@ -90,9 +84,9 @@
         <h2>Record and share</h2>
         <form id="record-form">
             <label for="name">Song name</label>
-            <input type="text" name="name">
+            <input type="text" id="record-songname" name="name">
             <label for="username">Artist (your) name</label>
-            <input type="text" name="username">
+            <input type="text" id="record-username" name="username">
             <input id="record-btn" type="submit" value="Record my rap song!">
         </form>
         <button id="save-btn">Save!</button>

@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         createRapSong();
     })
     addEventListenersToBackgroundSongs();
+    document.querySelector("textarea").addEventListener("blur", unmuteDrums)
+    document.querySelector("textarea").addEventListener("focus", muteDrums)
+    document.querySelector("#record-songname").addEventListener("blur", unmuteDrums)
+    document.querySelector("#record-songname").addEventListener("focus", muteDrums)
+    document.querySelector("#record-username").addEventListener("blur", unmuteDrums)
+    document.querySelector("#record-username").addEventListener("focus", muteDrums)
 })
 
 function getAllRapsongs() {
@@ -187,3 +193,17 @@ function playBackgroundSong(id, duration, buttonEl) {
         togglePlayStopText(buttonEl)
     }, duration)
 }
+
+function muteDrums() {
+    console.log("muted")
+    let allDrumAudio = document.querySelectorAll(".drumsounds")
+    allDrumAudio.forEach(sound => sound.muted = true)
+}
+
+function unmuteDrums() {
+    console.log("unmuted")
+    let allDrumAudio = document.querySelectorAll(".drumsounds")
+    allDrumAudio.forEach(sound => sound.muted = false)
+}
+
+
