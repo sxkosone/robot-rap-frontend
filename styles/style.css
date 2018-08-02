@@ -1,43 +1,74 @@
 .keys {
   display: flex;
   flex: 1;
-  /*min-height: 30vh;*/
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  /*border: .4rem solid black;*/
+  /* border-radius: .5rem; */
+  box-shadow: 5px 3px springgreen;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-  width: 10rem;
+  min-width: 7.5rem;
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.4);
+  background: black;/*rgba(0,0,0,0.4);*/
   text-shadow: 0 0 .5rem black;
 }
 
 .playing {
-  transform: scale(1.1);
+  transform: scale(0.9);
+  /* transform: translateY(4); */
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
 }
 
 kbd {
   display: block;
-  font-size: 4rem;
+  font-family: 'Hanalei Fill', cursive;
+  font-size: 3.5rem;
 }
 
 .sound {
   font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: goldenrod;
 }
 
 .selected-background-song {
-  border: 2px solid yellow;
+  border: 2px solid goldenrod;
+}
+
+.create {
+  background: url("http://www.nasa.gov/sites/default/files/thumbnails/image/15-066.png") bottom;
+  background-size: auto;
+  background-size: cover;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.recording {
+  background-color: springgreen;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.create h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+.create h2 {
+  color: white;
+  text-shadow: 0 0 .5rem black;
 }
