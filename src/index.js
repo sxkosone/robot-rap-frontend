@@ -156,6 +156,7 @@ function toggleRecordAndStop() {
         playLyrics()
         document.getElementById("record-btn").value = "Stop recording"
     } else {
+        stopRecording()
         document.getElementById("record-btn").value = "Record my rap song!"
     }
 }
