@@ -137,16 +137,6 @@ function togglePlayStopText(button) {
 
 //------------------------------------------------
 
-// not necessary duplicate functions
-// function startRecording() {
-//     drumRecording = ""
-//     start = Date.now();
-//     console.log("you started recording at:", start)
-// }
-
-// function stopRecording() {
-//     console.log("you recorded this:", drumRecording)
-// }
 
 function toggleRecordAndStop() {
     //recording will be now toggle ONLY here
