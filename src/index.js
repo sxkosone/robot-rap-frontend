@@ -14,12 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         toggleRecordAndStop();
         disableButtons();
-        // startRecording();
-        // playLyrics()
     })
-    // document.getElementById("stop-btn").addEventListener("click", (e) => {
-    //     stopRecording();
-    // })
+
     document.getElementById("save-btn").addEventListener("click", (e) => {
         createRapSong();
     })
@@ -27,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function getAllRapsongs() {
-    //fetch request to local rails api
+    //fetch request to deployed rails api
     fetch(HEROKU_URL)
     .then(r => r.json()).then(rapsongs => {
             rapsongs.forEach(rapsong => {
             //loop through all returned rapsong objects
             let newRapsong = new Rapsong(rapsong.id, rapsong.username, rapsong.name, rapsong.drums, rapsong.lyrics, rapsong.voice, rapsong.url, rapsong.duration, rapsong.background_song)
-            //render each rapsong onto screen
+            //render each rapsong onto screen, from newest
             newRapsong.render()
         })
     })
@@ -45,16 +41,12 @@ function startRecording() {
     duration = 0;
     drumRecording = ""
     start = Date.now();
-    //recording toggle happens now in toggle function
-    //recording = !recording
 
     console.log("you started recording at:", start)
     
 }
 
 function stopRecording() {
-    //recording toggle happens now in toggle function
-    //recording = !recording;
     duration = Date.now()-start
     console.log("you recorded this:", drumRecording, "length in milliseconds was:", duration)
 }
@@ -136,17 +128,19 @@ function togglePlayStopText(button) {
 }
 
 //------------------------------------------------
-
-
+//BUTTON and RECORD functionalities
 function toggleRecordAndStop() {
-    //recording will be now toggle ONLY here
+    //recording will be now toggled ONLY here
+    const bg = document.querySelector(".selected-background-song")
     recording = !recording
     if(recording) {
         startRecording()
         playLyrics()
+        bg.play()
         document.getElementById("record-btn").value = "Stop recording"
     } else {
         stopRecording()
+        bg.pause()
         document.getElementById("record-btn").value = "Record my rap song!"
     }
 }
@@ -189,8 +183,6 @@ function playBackgroundSong(id, duration, buttonEl) {
         bg.play()
     }
     setTimeout(function() {
-        //bg.pause();
-        //bg.currentTime = 0;
         stopSong(id)
         togglePlayStopText(buttonEl)
     }, duration)
