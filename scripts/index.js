@@ -199,7 +199,9 @@ function playBackgroundSong(id, duration, buttonEl) {
     }
     setTimeout(function() {
         stopSong(id)
-        togglePlayStopText(buttonEl)
+        if(buttonEl.innerText === "Stop") {
+            togglePlayStopText(buttonEl)
+        }  
     }, duration)
 }
 
