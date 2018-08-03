@@ -12,8 +12,6 @@ body {
 }
 
 .key {
-  /*border: .4rem solid black;*/
-  /* border-radius: .5rem; */
   box-shadow: 5px 3px springgreen;
   margin: 1rem;
   font-size: 1.5rem;
@@ -22,13 +20,12 @@ body {
   min-width: 7.5rem;
   text-align: center;
   color: white;
-  background: black;/*rgba(0,0,0,0.4);*/
+  background: black;
   text-shadow: 0 0 .5rem black;
 }
 
 .playing {
   transform: scale(0.9);
-  /* transform: translateY(4); */
   border-color: springgreen;
   box-shadow: 0 0 1rem springgreen;
 }
@@ -54,8 +51,7 @@ kbd {
 }
 
 .create {
-  background: url("http://www.nasa.gov/sites/default/files/thumbnails/image/15-066.png") bottom;
-  /* background-size: auto; */
+  background: url("http://www.nasa.gov/sites/default/files/thumbnails/image/15-066.png") bottom fixed;
   background-size: cover;
   text-align: center;
   min-height: 100vh;
@@ -119,10 +115,6 @@ i {
   text-shadow: 2px 2px 10px black;
 }
 
-#rapsongs {
-  padding-left: 20px;
-}
-
 #rapsongs button {
   background-color: springgreen;
   border-radius: 2px;
@@ -154,17 +146,12 @@ label {
 
 #rap-song-container {
   background-color: black;
-  padding: 40px;
+  padding: 50px;
 
 }
 
 #rap-song-container h2, h3 {
   color: ghostwhite;
-}
-
-#rap-song-container h2 {
-  margin: 0;
-  padding-left: 40px;
 }
 
 #rap-song-container p {
@@ -174,7 +161,6 @@ label {
 #instructions {
   max-width: 300px;
   margin: auto;
-  
 }
 
 #record-container {
