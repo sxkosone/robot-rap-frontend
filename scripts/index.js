@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
     })
     addEventListenersToBackgroundSongs();
+    preLoadAudio();
+
     document.querySelector("textarea").addEventListener("blur", unmuteDrums)
     document.querySelector("textarea").addEventListener("focus", muteDrums)
     document.querySelector("#record-songname").addEventListener("blur", unmuteDrums)
@@ -213,4 +215,12 @@ function unmuteDrums() {
     allDrumAudio.forEach(sound => sound.muted = false)
 }
 
+
+function preLoadAudio() {
+    let allAudio = document.querySelectorAll("audio")
+    allAudio.forEach(audio => {
+        audio.preload = "auto"
+        console.log(audio.preload)
+    })
+}
 
