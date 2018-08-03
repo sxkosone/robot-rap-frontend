@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#record-songname").addEventListener("focus", muteDrums)
     document.querySelector("#record-username").addEventListener("blur", unmuteDrums)
     document.querySelector("#record-username").addEventListener("focus", muteDrums)
+    document.getElementById("stop-btn").addEventListener("click", stopLyrics)
 })
 
 function getAllRapsongs() {
@@ -103,6 +104,11 @@ function playSongLyrics(lyrics, voice) {
     synth.speak(utterThis);
     lyricsText.blur();
 }
+
+function stopLyrics() {
+    speechSynthesis.cancel()
+}
+
 
 function playDrums(drumStr) {
     //initialize counter to 0. set Interval to 10milliseconds
@@ -201,10 +207,11 @@ function playBackgroundSong(id, duration, buttonEl) {
         stopSong(id)
         if(buttonEl.innerText === "Stop") {
             togglePlayStopText(buttonEl)
-        }  
+        }
+  
     }, duration)
 }
-
+//----------- deals with drum audio functionality---------------//
 function muteDrums() {
     console.log("muted")
     let allDrumAudio = document.querySelectorAll(".drumsounds")
@@ -225,9 +232,11 @@ function preLoadAudio() {
         console.log(audio.preload)
     })
 }
-
+//------------delete rapsong in the backend -----------//
 function deleteRapsong(id) {
     fetch(`${HEROKU_URL}/${id}`,{
         method: "DELETE"
     })
 }
+
+
