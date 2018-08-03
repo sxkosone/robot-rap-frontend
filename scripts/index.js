@@ -224,3 +224,8 @@ function preLoadAudio() {
     })
 }
 
+function deleteRapsong(id) {
+    fetch(`https://whispering-shore-86049.herokuapp.com/rapsongs/${id}`,{
+        method: "DELETE"
+    })
+}
