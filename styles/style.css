@@ -77,6 +77,8 @@ h3 {
   background-color: springgreen;
   text-align: center;
   padding: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .create h1 {
@@ -167,4 +169,19 @@ label {
 
 #rap-song-container p {
   color: #73EEDC;
+}
+
+#instructions {
+  max-width: 300px;
+  margin: auto;
+  
+}
+
+#record-container {
+  margin: auto;
+}
+
+#outer-record-container {
+  display: flex;
+  width: 70%;
 }
